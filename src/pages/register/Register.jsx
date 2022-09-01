@@ -15,68 +15,52 @@ function Register() {
     const [values, setValues] = useState('')
     const navigate = useNavigate();
 
-    const { register, handleSubmit, reset,  formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
 
     const generateError = (err) =>
         toast.error(err, {
             position: "bottom-right"
         })
-   
-        const generateSuccess = (success) =>
+
+    const generateSuccess = (success) =>
         toast.success(success, {
             position: "bottom-right"
         })
 
 
-    const handleChange = (e) => {
-        setValues(e.target.value);
-    }
-
 
     const handleRegister = async (body) => {
+        console.log('LLLLL');
         try {
-            // console.log(body);
+            console.log(body,'l');
 
-            const { userName, firstName, lastName, email,   password } = body;
+            const { userName, firstName, lastName, email, password } = body;
             let values = new FormData();
 
-            if( userName && firstName && lastName && email     && password ) {
-                values.append("userName" , userName);
-                values.append("firstName" , firstName);
-                values.append("lastName" , lastName);
-                values.append("email" , email);
+            if (userName && firstName && lastName && email && password) {
+                values.append("userName", userName);
+                values.append("firstName", firstName);
+                values.append("lastName", lastName);
+                values.append("email", email);
                 // values.append("gender" , gender);
                 values.append("pic", image);
-                values.append("password" , password);
+                values.append("password", password);
 
                 const data = await axios.post("/user/register", values, {
                     headers: {
                         "Content-Type": "multipart/form-data"
                     }
-
                 })
                 console.log('a,,,s,', data);
                 generateSuccess(data.message)
-                reset({values})
+                reset({ values })
+                navigate('/login')
+            }
+            else {
+                generateError("Something went wrong!")
             }
 
-                
-
-            // console.log('axios data.....................', data);
-            // if (data) {
-            //     if (data.errors) {
-            //         const { name, email, password, phone } = data.errors;
-            //         if (name) generateError(name);
-            //         else if (email) generateError(email);
-            //         else if (password) generateError(password);
-            //         else if (phone) generateError(phone);
-
-            //     }
-            //     else {
-            //         navigate("/");
-            //     }
-            // }
         } catch (error) {
             console.log(error);
             generateError("Something went wrong !")
@@ -117,7 +101,6 @@ function Register() {
                                         src={image ? URL.createObjectURL(image) : "https://www.w3schools.com/howto/img_avatar.png"}
                                         alt="profile"
                                         sx={{ width: "5rem", height: "5rem", cursor: "pointer", mt: "10%", ml: "10%" }}
-
                                     />
                                 </label>
                             </div>
@@ -147,12 +130,18 @@ function Register() {
                                 />
 
                             </div>
+
                             <div>
                                 {/* <label htmlFor="name">First Name</label> */}
-                                <TextField type="text" name="firstName" label="First name"  {...register('firstName')}
+                                <TextField 
+                                    type="text" 
+                                    name="firstName" 
+                                    label="First name"  
+                                    {...register('firstName')}
                                     onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                                 />
                             </div>
+
                             <div>
                                 {/* <label htmlFor="name">Last Name</label> */}
                                 <TextField type="text" name="lastName" label="Last name"  {...register('lastName')}

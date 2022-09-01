@@ -1,0 +1,8 @@
+.albumDiv {
+    height: 25rem;
+    margin: auto;
+    width: 25%;
+    border: 2px solid;
+    margin-top: 3rem;
+    background-image: "https://unsplash.com/s/photos/photo";
+}
