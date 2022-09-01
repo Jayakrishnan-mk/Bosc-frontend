@@ -44,15 +44,12 @@ function CreateAlbum({ handleClose }) {
 
 
     const handlePost = async (data) => {
-        // const user = localStorage.getItem('user');
         const { description } = data
 
         let values = new FormData()
         if (description) {
-            // console.log(description, photos, image, user);
             values.append('image', image)
             values.append('description', description)
-            // values.append('createdBy', user)
 
             for (var pair of values.entries()) {
                 console.log(pair[0] + ' - ' + pair[1]);
@@ -136,9 +133,7 @@ function CreateAlbum({ handleClose }) {
 
                                 <button className="btn" type="submit">Submit</button>
                             </Grid>
-                            {/* <Grid item xs={12}>
 
-                                </Grid> */}
                         </Grid>
                     </footer>
                 </form>

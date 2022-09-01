@@ -1,4 +1,3 @@
-// import React from 'react'
 
 import * as React from 'react';
 import './profile.css'
@@ -52,7 +51,6 @@ function Profile() {
                     "Content-Type": "multipart/form-data"
                 },
             });
-            // console.log("data", data);
             if (data.created) {
                 generateSuccess("Image updated");
             } else if (data.error) {
@@ -74,7 +72,7 @@ function Profile() {
         } else {
             changeImage(image);
         }
-    }, [image]);    
+    }, [image]);
 
 
     const getUserDetails = async () => {
@@ -100,7 +98,7 @@ function Profile() {
     const handleSubmit = async () => {
         try {
             const { data } = await axios.put('/user', value, config)
-            
+
             if (data.message === "User updated successfully") {
                 generateSuccess("saved")
             }

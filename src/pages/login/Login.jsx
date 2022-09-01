@@ -28,9 +28,7 @@ function Login() {
                 generateError("Please fill all the fields");
                 return;
             }
-            // console.log('reached frontend');
             const { data } = await axios.post("/user/login", values);
-            // console.log('compiler coming........');
             console.log('axios data.....................', data);
             if (data) {
                 if (data.error) {

@@ -33,7 +33,7 @@ function Register() {
     const handleRegister = async (body) => {
         console.log('LLLLL');
         try {
-            console.log(body,'l');
+            console.log(body, 'l');
 
             const { userName, firstName, lastName, email, password } = body;
             let values = new FormData();
@@ -43,7 +43,6 @@ function Register() {
                 values.append("firstName", firstName);
                 values.append("lastName", lastName);
                 values.append("email", email);
-                // values.append("gender" , gender);
                 values.append("pic", image);
                 values.append("password", password);
 
@@ -106,7 +105,6 @@ function Register() {
                             </div>
 
                             <div>
-                                {/* <label htmlFor="name">Username</label> */}
                                 <TextField type="text" name="userName"  {...register('userName', {
                                     required: 'This field is required',
                                     minLength: {
@@ -132,48 +130,28 @@ function Register() {
                             </div>
 
                             <div>
-                                {/* <label htmlFor="name">First Name</label> */}
-                                <TextField 
-                                    type="text" 
-                                    name="firstName" 
-                                    label="First name"  
+                                <TextField
+                                    type="text"
+                                    name="firstName"
+                                    label="First name"
                                     {...register('firstName')}
                                     onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                                 />
                             </div>
 
                             <div>
-                                {/* <label htmlFor="name">Last Name</label> */}
                                 <TextField type="text" name="lastName" label="Last name"  {...register('lastName')}
                                     onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                                 />
                             </div>
 
                             <div>
-                                {/* <label htmlFor="email">Email</label> */}
                                 <TextField type="email" name="email" label="Email"  {...register('email')}
                                     onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                                 />
                             </div>
 
-
-                            {/* <FormControl>
-                                <FormLabel sx={{textAlign:"left"}} id="demo-row-radio-buttons-group-label">Gender</FormLabel>
-                                <RadioGroup
-                                    row
-                                    aria-labelledby="demo-row-radio-buttons-group-label"
-                                    name="row-radio-buttons-group"
-                                >
-                                    <FormControlLabel value="male" control={<Radio />} label="Male" />
-                                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                                    <FormControlLabel value="other" control={<Radio />} label="Other" />
-                                    
-                                </RadioGroup>
-                            </FormControl> */}
-
-
                             <div>
-                                {/* <label htmlFor="password">Password</label> */}
                                 <TextField type="password" name="password" label="Password"  {...register('password')}
                                     onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}
                                 />

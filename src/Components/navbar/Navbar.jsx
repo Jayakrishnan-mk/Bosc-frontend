@@ -16,28 +16,27 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 function Navbar() {
 
-    // const pages = ['Products', 'Pricing', 'Blog'];
-    const settings = ['Profile', 'Account' , 'Dashboard', 'Logout'];
+    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-        const [anchorElNav, setAnchorElNav] = React.useState(null);
-        const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-        const handleOpenNavMenu = (event) => {
-            setAnchorElNav(event.currentTarget);
-        };
-        const handleOpenUserMenu = (event) => {
-            setAnchorElUser(event.currentTarget);
-        };
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
 
-        const handleCloseNavMenu = () => {
-            setAnchorElNav(null);
-        };
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
 
-        const handleCloseUserMenu = () => {
-            setAnchorElUser(null);
-        };
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
-        
+
     return (
         <div>
             <AppBar position="static">
@@ -91,11 +90,7 @@ function Navbar() {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                {/* {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
-                                    </MenuItem>
-                                ))} */}
+
                             </Menu>
                         </Box>
                         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -118,15 +113,7 @@ function Navbar() {
                             LOGO
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            {/* {pages.map((page) => (
-                                <Button
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
-                                >
-                                    {page}
-                                </Button>
-                            ))} */}
+
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
